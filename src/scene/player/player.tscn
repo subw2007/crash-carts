@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cfwj143bfeh0r"]
+
+[ext_resource type="Script" uid="uid://cy4b4kwb010hf" path="res://src/scripts/Player.cs" id="1_dv4au"]
+[ext_resource type="Material" uid="uid://bynd20spqwkq4" path="res://src/materials/playerMAT/redPlayer.tres" id="2_yhiuf"]
+[ext_resource type="Material" uid="uid://crp8301eca14" path="res://src/materials/playerMAT/bluePlayer.tres" id="3_pdc5x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rvtwr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dv4au"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yhiuf"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1166968410]
+script = ExtResource("1_dv4au")
+RedPlayer = ExtResource("2_yhiuf")
+BluePlayer = ExtResource("3_pdc5x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1862789468]
+mesh = SubResource("CapsuleMesh_rvtwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=570214088]
+shape = SubResource("CapsuleShape3D_dv4au")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=951114605]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2, 3)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=276096783]
+replication_config = SubResource("SceneReplicationConfig_yhiuf")

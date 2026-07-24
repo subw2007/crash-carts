@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dn3xamljyy82k"]
+
+[ext_resource type="Script" uid="uid://p68gil0j4wbu" path="res://src/scripts/ClientLobbyUI.cs" id="1_05kso"]
+
+[node name="ClientLobbyUI" type="Control" unique_id=2027338752]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05kso")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1422618549]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=816771424]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=485829110]
+layout_mode = 2

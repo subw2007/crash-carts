@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://drhvq188ogqtf"]
+
+[ext_resource type="Script" uid="uid://bnqi0nxoeoh3y" path="res://src/scripts/HostLobbyUI.cs" id="1_5ndc0"]
+[ext_resource type="PackedScene" uid="uid://db5aw6lndhnqq" path="res://src/scene/main.tscn" id="2_agkkn"]
+
+[node name="HostLobbyUI" type="Control" unique_id=2027338752 node_paths=PackedStringArray("_playerListContainer", "_startGameButton", "_inviteButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ndc0")
+_mainGameScene = ExtResource("2_agkkn")
+_playerListContainer = NodePath("VBoxContainer/VBoxContainer")
+_startGameButton = NodePath("VBoxContainer/Start Game")
+_inviteButton = NodePath("VBoxContainer/Invite Player")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1422618549]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=816771424]
+layout_mode = 2
+
+[node name="Start Game" type="Button" parent="VBoxContainer" unique_id=1584354516]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Invite Player" type="Button" parent="VBoxContainer" unique_id=837273555]
+layout_mode = 2
+text = "Invite Friends"

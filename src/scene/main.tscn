@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://db5aw6lndhnqq"]
+
+[ext_resource type="Script" uid="uid://usu5p5o2408m" path="res://src/scripts/GameManager.cs" id="1_cei7b"]
+[ext_resource type="PackedScene" uid="uid://cfwj143bfeh0r" path="res://src/scene/player/player.tscn" id="2_48vbg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_48vbg"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_27gg6"]
+sky_material = SubResource("ProceduralSkyMaterial_48vbg")
+
+[sub_resource type="Environment" id="Environment_6gqyf"]
+background_mode = 2
+sky = SubResource("Sky_27gg6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83tr7"]
+albedo_color = Color(0.36471137, 0.3647114, 0.3647114, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1kux"]
+material = SubResource("StandardMaterial3D_83tr7")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ayjr"]
+size = Vector3(100, 1, 100)
+
+[node name="main" type="Node3D" unique_id=828348883 node_paths=PackedStringArray("_spawnPointsContainer")]
+script = ExtResource("1_cei7b")
+_playerPrefab = ExtResource("2_48vbg")
+_spawnPointsContainer = NodePath("map/spawnPoints")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1103578246]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1433605243]
+environment = SubResource("Environment_6gqyf")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1525456002]
+_spawnable_scenes = PackedStringArray("uid://cfwj143bfeh0r")
+spawn_path = NodePath("../map")
+spawn_limit = 5
+
+[node name="map" type="Node3D" parent="." unique_id=985369356]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="map" unique_id=1615614926]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="map/StaticBody3D" unique_id=1305889167]
+mesh = SubResource("BoxMesh_d1kux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map/StaticBody3D" unique_id=2110227361]
+shape = SubResource("BoxShape3D_6ayjr")
+
+[node name="spawnPoints" type="Node3D" parent="map" unique_id=1458392609]
+
+[node name="spawn1" type="Marker3D" parent="map/spawnPoints" unique_id=985660200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 5, 0)
+
+[node name="spawn2" type="Marker3D" parent="map/spawnPoints" unique_id=1494109401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 5, 0)
+
+[node name="spawn3" type="Marker3D" parent="map/spawnPoints" unique_id=900093066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -44)
+
+[node name="spawn4" type="Marker3D" parent="map/spawnPoints" unique_id=1561846468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 44)

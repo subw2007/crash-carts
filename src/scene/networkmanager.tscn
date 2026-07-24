@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2k2bfalk22de"]
+
+[ext_resource type="Script" uid="uid://ektlecpg8mvf" path="res://src/scripts/NetworkManager.cs" id="1_xri3q"]
+
+[node name="Node" type="Node" unique_id=702541048]
+script = ExtResource("1_xri3q")

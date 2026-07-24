@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://fr30r8kdoa2t"]
+
+[ext_resource type="Script" uid="uid://dt0lnxhnm2w5i" path="res://src/scripts/Mainmenu.cs" id="1_77w0q"]
+[ext_resource type="PackedScene" uid="uid://drhvq188ogqtf" path="res://src/scene/UI/HostLobbyUI.tscn" id="2_m7lvl"]
+[ext_resource type="PackedScene" uid="uid://dn3xamljyy82k" path="res://src/scene/UI/ClientLobbyUI.tscn" id="3_ypduc"]
+
+[node name="Control" type="Control" unique_id=575255818]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77w0q")
+_hostLobbyScene = ExtResource("2_m7lvl")
+_clientLobbyScene = ExtResource("3_ypduc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=945078242]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hostserver" type="Button" parent="HBoxContainer" unique_id=1308620486]
+layout_mode = 2
+text = "HOST SERVER"
+
+[node name="hostp2p" type="Button" parent="HBoxContainer" unique_id=1366282740]
+layout_mode = 2
+text = "HOST P2P"
+
+[node name="joingame" type="Button" parent="HBoxContainer" unique_id=558027887]
+layout_mode = 2
+text = "JOIN GAME"
